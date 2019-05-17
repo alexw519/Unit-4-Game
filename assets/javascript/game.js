@@ -3,56 +3,39 @@ var obiWan =
     charName: "Obi-Wan",
     attackPower: 8,
     counterAttack: 30,
-
-    makeCard: function()
-    {
-
-    }
+    health: 150
 }
 var attackerPower;
 var defenderCounter;
 var characterSelected = false;
 var enemySelected = false;
-// $("#character").text(obiWan.charName);
+var obiWanCard = $("#obiCard");
 
-//possibly code this in html like the captain planet and then hide or not
-function newCharacter(name, attack, counter)
+//Click Function For The Obi-Wan Card
+$("#obiCard").on("click", function()
 {
-    var newCard = $("<div>");
-    newCard.addClass("card");
-    $("#character").append(attack);
-}
-
-newCharacter(obiWan.charName, obiWan.attackPower, obiWan.counterAttack);
-
-var attackButton = $("#attackButton");
-//var obiWanCard = $("#obiWanCard")
-
-// var test = $("#character");
-// Put the following code on click for the character
-// 
-// $("#fightSection").append(attackButton);
-
-$("#obiWan").on("click", function()
-{
-    selection(obiWan, obiWanCard);
+    var clicked = false;
+    if (!clicked)
+    {
+        selection(obiWan, obiWanCard);
+        clicked = true;
+    }
 })
 
+//Moves The Card Selected
 function selection(character, cardName)
 {
     if (!characterSelected)
     {
         characterSelected = true;
         attackerPower = character.attackPower;
-        // $("#defender").append(test);
-        //$("#yourChar").append(cardName)
+        $("#yourChar").append(cardName);
     }
     if (characterSelected && !enemySelected)
     {
         enemySelected = true;
         defenderCounter = character.counterAttack;
+        $("#defender").append(cardName);
+        //Show The Attack Button
     }
-
 }
-
-selection(obiWan);
