@@ -58,30 +58,26 @@ $("#attackButton").hide();
 $("#resetButton").hide();
 
 //Click Function For The Obi-Wan Card
-$("#obiCard").on("click", function()
-{
+$("#obiCard").on("click", function () {
     // var clicked = false;
     // if (!clicked)
     // {
-        selection(obiWan, obiWanCard);
+    selection(obiWan, obiWanCard);
     //     clicked = true;
     // }
 })
 
 //Click Function For The Luke Skywalker Card
-$("#lukeCard").on("click", function()
-{   selection(lukeSky, lukeSkyCard);   })
+$("#lukeCard").on("click", function () { selection(lukeSky, lukeSkyCard); })
 
 //Click Function For The Darth Sidous Card
-$("#sidCard").on("click", function()
-{   selection(darthSid, darthSidCard);  })
+$("#sidCard").on("click", function () { selection(darthSid, darthSidCard); })
 
 //Click Function For The Darth Maul Card
-$("#maulCard").on("click", function()
-{   selection(darthMaul, darthMaulCard);    })
+$("#maulCard").on("click", function () { selection(darthMaul, darthMaulCard); })
 
 //Function To Battle Between Characters When Button Is Clicked
-$("#attackButton").on("click", function()
+$("#attackButton").on("click", function () 
 {
     defenderHealth -= damage;
     $("#display").html("<p>You did " + damage + " damage!");
@@ -94,8 +90,7 @@ $("#attackButton").on("click", function()
 
     //Code For When Either Character Is Defeated
     //When The User Loses
-    if (attackerHealth <= 0)
-    {
+    if (attackerHealth <= 0) {
         defenderHealth += damage
         $(characterId).text(0);
         $(defenderId).text(defenderHealth);
@@ -105,18 +100,16 @@ $("#attackButton").on("click", function()
     }
 
     //When The User Defeats A Character
-    else if (defenderHealth <=0)
-    {
+    else if (defenderHealth <= 0) {
         attackerHealth += defenderCounter;
         $(characterId).text(attackerHealth);
         enemySelected = false;
         alert("You have defeated " + enemyName + "!");
         currentEnemy.hide();
-        enemies --;
+        enemies--;
 
         //When All Of The Enemies Are Defeated
-        if (enemies === 0)
-        {
+        if (enemies === 0) {
             alert("You Win!");
             $("#resetButton").show();
         }
@@ -126,15 +119,12 @@ $("#attackButton").on("click", function()
 })
 
 //Button To Reload The Page After The User Has Won Or Lost
-$("#resetButton").on("click", function()
-{   location.reload();  })
+$("#resetButton").on("click", function () { location.reload(); })
 
 //Moves The Card Selected
-function selection(character, cardName)
-{
+function selection(character, cardName) {
     //If The User Doesn't Have A Character Yet
-    if (!characterSelected)
-    {
+    if (!characterSelected) {
         characterSelected = true;
         attackerPower = character.attackPower;
         damage = attackerPower;
@@ -147,8 +137,7 @@ function selection(character, cardName)
     }
 
     //If An Enemy Hasn't Been Selected Yet
-    else if (characterSelected && !enemySelected)
-    {
+    else if (characterSelected && !enemySelected) {
         enemySelected = true;
         enemyName = character.charName;
         defenderCounter = character.counterAttack;
