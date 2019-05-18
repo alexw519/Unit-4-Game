@@ -2,32 +2,32 @@
 var obiWan =
 {
     charName: "Obi-Wan",
-    attackPower: 8,
-    counterAttack: 30,
+    attackPower: 6,
+    counterAttack: 25,
     health: 130,
     healthId: "obiHealth"
 }
 var lukeSky =
 {
     charName: "Luke Skywalker",
-    attackPower: 8,
-    counterAttack: 0,
-    health: 120,
+    attackPower: 10,
+    counterAttack: 15,
+    health: 110,
     healthId: "lukeHealth"
 }
 var darthSid =
 {
     charName: "Darth Sidous",
-    attackPower: 8,
-    counterAttack: 0,
-    health: 130,
+    attackPower: 3,
+    counterAttack: 15,
+    health: 140,
     healthId: "sidHealth"
 }
 var darthMaul =
 {
     charName: "Darth Maul",
-    attackPower: 8,
-    counterAttack: 0,
+    attackPower: 6,
+    counterAttack: 15,
     health: 200,
     healthId: "maulHealth"
 }
@@ -84,9 +84,8 @@ $("#attackButton").on("click", function()
     defenderHealth -= attackerPower;
     attackerPower = attackerPower *2;
     attackerHealth -= defenderCounter;
-//Below New Code
     $(characterId).text(attackerHealth);
-//Find way to get the health to display on the correct card
+    $(defenderId).text(defenderHealth);
 
     //Code For When Either Character Is Defeated
     //When The User Loses
@@ -132,7 +131,6 @@ function selection(character, cardName)
         currentCharacter = cardName;
         $("#yourChar").append(cardName);
         $("#enemies").append(characterCards);
-//Below New Code
         characterId = "#" + character.healthId;
     }
 
@@ -145,5 +143,6 @@ function selection(character, cardName)
         currentEnemy = cardName;
         $("#defender").append(cardName);
         $("#attackButton").show();
+        defenderId = "#" + character.healthId;
     }
 }
