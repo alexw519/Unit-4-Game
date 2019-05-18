@@ -2,16 +2,16 @@
 var obiWan =
 {
     charName: "Obi-Wan",
-    attackPower: 6,
+    attackPower: 4,
     counterAttack: 25,
-    health: 130,
+    health: 125,
     healthId: "obiHealth"
 }
 var lukeSky =
 {
     charName: "Luke Skywalker",
     attackPower: 10,
-    counterAttack: 15,
+    counterAttack: 20,
     health: 110,
     healthId: "lukeHealth"
 }
@@ -26,9 +26,9 @@ var darthSid =
 var darthMaul =
 {
     charName: "Darth Maul",
-    attackPower: 6,
-    counterAttack: 15,
-    health: 200,
+    attackPower: 1,
+    counterAttack: 10,
+    health: 210,
     healthId: "maulHealth"
 }
 
@@ -43,6 +43,8 @@ var currentCharacter;
 var currentEnemy;
 var characterId;
 var defenderId;
+var damage;
+var enemyName;
 var enemies = 3;
 
 //Intiailizing Variables Linking To HTML Document
@@ -81,9 +83,12 @@ $("#maulCard").on("click", function()
 //Function To Battle Between Characters When Button Is Clicked
 $("#attackButton").on("click", function()
 {
-    defenderHealth -= attackerPower;
-    attackerPower = attackerPower *2;
+    defenderHealth -= damage;
+    $("#display").html("<p>You did " + damage + " damage!");
+    damage += attackerPower;
     attackerHealth -= defenderCounter;
+    $("#display").append("<p>The defender did " + defenderCounter + " damage!</p>")
+
     $(characterId).text(attackerHealth);
     $(defenderId).text(defenderHealth);
 
@@ -91,7 +96,9 @@ $("#attackButton").on("click", function()
     //When The User Loses
     if (attackerHealth <= 0)
     {
+        defenderHealth += damage
         $(characterId).text(0);
+        $(defenderId).text(defenderHealth);
         $("#attackButton").hide();
         $("#resetButton").show();
         alert("Sorry, Game Over");
@@ -100,8 +107,10 @@ $("#attackButton").on("click", function()
     //When The User Defeats A Character
     else if (defenderHealth <=0)
     {
+        attackerHealth += defenderCounter;
+        $(characterId).text(attackerHealth);
         enemySelected = false;
-        alert("Enemy Defeated");
+        alert("You have defeated " + enemyName + "!");
         currentEnemy.hide();
         enemies --;
 
@@ -113,6 +122,7 @@ $("#attackButton").on("click", function()
         }
         $("#attackButton").hide();
     }
+
 })
 
 //Button To Reload The Page After The User Has Won Or Lost
@@ -127,22 +137,26 @@ function selection(character, cardName)
     {
         characterSelected = true;
         attackerPower = character.attackPower;
+        damage = attackerPower;
         attackerHealth = character.health;
         currentCharacter = cardName;
         $("#yourChar").append(cardName);
         $("#enemies").append(characterCards);
         characterId = "#" + character.healthId;
+        $(cardName).css("background-color", "lightgreen");
     }
 
     //If An Enemy Hasn't Been Selected Yet
     else if (characterSelected && !enemySelected)
     {
         enemySelected = true;
+        enemyName = character.charName;
         defenderCounter = character.counterAttack;
         defenderHealth = character.health;
         currentEnemy = cardName;
         $("#defender").append(cardName);
         $("#attackButton").show();
         defenderId = "#" + character.healthId;
+        $(cardName).css("background-color", "red");
     }
 }
