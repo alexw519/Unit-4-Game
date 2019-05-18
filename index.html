@@ -23,7 +23,7 @@
             <div class="card-body">
                 <h5 class="card-title">Obi-Wan Kenobi</h5>
                 <img src="./assets/images/obiWan.jpg" class="card-img-top" alt="...">
-                <p class="card-text">150</p>
+                <p class="card-text" id="obiHealth">150</p>
             </div>
         </div>
         <!-- </div> -->
@@ -33,7 +33,7 @@
             <div class="card-body">
                 <h5 class="card-title">Luke Skywalker</h5>
                 <img src="./assets/images/lukeSkywalker.jpg" class="card-img-top" alt="...">
-                <p class="card-text">120</p>
+                <p class="card-text" id ="lukeHealth">120</p>
             </div>
         </div>
         <!-- </div> -->
@@ -43,7 +43,7 @@
             <div class="card-body">
                 <h5 class="card-title">Darth Sidous</h5>
                 <img src="./assets/images/darthSidous.jpg" class="card-img-top" alt="...">
-                <p class="card-text">130</p>
+                <p class="card-text" id="sidHealth">130</p>
             </div>
         </div>
         <!-- </div> -->
@@ -53,7 +53,7 @@
             <div class="card-body">
                 <h5 class="card-title">Darth Maul</h5>
                 <img src="./assets/images/darthMaul.jpg" class="card-img-top" alt="...">
-                <p class="card-text">200</p>
+                <p class="card-text" id="maulHealth">200</p>
             </div>
         </div>
         <!-- </div> -->
@@ -69,11 +69,12 @@
     </div>
     <div id="fightSection">
         <h3>Fight Section</h3>
-        <button id=attackButton>Attack</button>
+        <button id=attackButton type="hidden">Attack</button>
     </div>
     <div id="defender">
         <h3>Defender</h3>
     </div>
+    <button id="resetButton" type="hidden">Reset</button>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="assets/javascript/game.js">

@@ -9,21 +9,21 @@ var lukeSky =
 {
     charName: "Luke Skywalker",
     attackPower: 8,
-    counterAttack: 30,
+    counterAttack: 0,
     health: 120
 }
 var darthSid =
 {
     charName: "Darth Sidous",
     attackPower: 8,
-    counterAttack: 30,
+    counterAttack: 0,
     health: 130
 }
 var darthMaul =
 {
     charName: "Darth Maul",
     attackPower: 8,
-    counterAttack: 30,
+    counterAttack: 0,
     health: 200
 }
 
@@ -33,12 +33,18 @@ var defenderCounter;
 var defenderHealth;
 var characterSelected = false;
 var enemySelected = false;
+var currentCharacter;
+var currentEnemy;
+var enemies = 3;
 
 var obiWanCard = $("#obiCard");
 var lukeSkyCard = $("#lukeCard");
 var darthSidCard = $("#sidCard");
 var darthMaulCard = $("#maulCard");
 var characterCards = $("#character");
+
+$("#attackButton").hide();
+$("#resetButton").hide();
 
 //Click Function For The Obi-Wan Card
 $("#obiCard").on("click", function()
@@ -64,33 +70,45 @@ $("#maulCard").on("click", function()
 {   selection(darthMaul, darthMaulCard);    })
 
 //Function To Battle Between Characters
-$("attackButton").on("click", function()
+$("#attackButton").on("click", function()
 {
     defenderHealth -= attackerPower;
     attackerPower = attackerPower *2;
     attackerHealth -= defenderCounter;
 
+    
     //Find way to get the health to display on the correct card
 
 
     //Code For When Either Character Is Defeated
     if (attackerHealth <= 0)
     {
+        $("#attackButton").hide();
+        $("#resetButton").show();
         //Game Over Message
-        //Reset Button Appears
         //disable attack button
     }
     else if (defenderHealth <=0)
     {
-        //character.hide()
         enemySelected = false;
-        //tempoarily disable attack button until new character is selected
-        
-        //need if for all enemies defeated
+        alert("Enemy Defeated");
+        currentEnemy.hide();
+        enemies --;
+        if (enemies === 0)
+        {
             //You Win Message,
             //Reset Buttons Appears
+            $("#resetButton").show();
+        }
+        //tempoarily disable attack button until new character is selected
+        $("#attackButton").hide();
     }
 
+})
+
+$("#resetButton").on("click", function()
+{
+    location.reload();
 })
 
 //Moves The Card Selected
@@ -101,6 +119,7 @@ function selection(character, cardName)
         characterSelected = true;
         attackerPower = character.attackPower;
         attackerHealth = character.health;
+        currentCharacter = cardName;
         $("#yourChar").append(cardName);
         $("#enemies").append(characterCards);
     }
@@ -110,10 +129,11 @@ function selection(character, cardName)
         enemySelected = true;
         defenderCounter = character.counterAttack;
         defenderHealth = character.health;
+        currentEnemy = cardName;
         $("#defender").append(cardName);
         //Show The Attack Button
-        // darthSidCard.hide(); Use to remove when health = 0
-        // And then set enemy Selected to false
+        $("#attackButton").show();
+
     }
 
 }
