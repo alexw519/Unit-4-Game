@@ -13,7 +13,7 @@ h1
 .card
 {
     /* margin: 0 auto; */
-    border: 5px solid white;
+    border: 5px solid yellow;
     padding: 0px;
     margin: 5px 0px;
     background-color: black;
@@ -22,6 +22,18 @@ h1
 body
 {
     font-family: 'Bungee', cursive;
-    color: white;
+    color: yellow;
     font-size: 14px;
+}
+
+#display
+{
+    color: white;
+}
+
+button
+{
+    background-color: white;
+    border: yellow;
+    margin: 2px;
 }

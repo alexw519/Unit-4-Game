@@ -2,32 +2,32 @@
 var obiWan =
 {
     charName: "Obi-Wan",
-    attackPower: 4,
-    counterAttack: 25,
-    health: 125,
+    attackPower: 7,
+    counterAttack: 13,
+    health: 115,
     healthId: "obiHealth"
 }
 var lukeSky =
 {
     charName: "Luke Skywalker",
-    attackPower: 10,
-    counterAttack: 20,
-    health: 110,
+    attackPower: 17,
+    counterAttack: 7,
+    health: 100,
     healthId: "lukeHealth"
 }
 var darthSid =
 {
     charName: "Darth Sidous",
-    attackPower: 3,
-    counterAttack: 15,
+    attackPower: 5,
+    counterAttack: 20,
     health: 140,
     healthId: "sidHealth"
 }
 var darthMaul =
 {
     charName: "Darth Maul",
-    attackPower: 1,
-    counterAttack: 10,
+    attackPower: 3,
+    counterAttack: 15,
     health: 210,
     healthId: "maulHealth"
 }
@@ -89,7 +89,7 @@ $("#attackButton").on("click", function ()
         $(defenderId).text(defenderHealth);
         $("#attackButton").hide();
         $("#resetButton").show();
-        alert("Sorry, Game Over");
+        $("#display").text("Sorry, you were defeated. Game Over");
     }
 
     //When The User Defeats A Character
@@ -97,13 +97,13 @@ $("#attackButton").on("click", function ()
         attackerHealth += defenderCounter;
         $(characterId).text(attackerHealth);
         enemySelected = false;
-        alert("You have defeated " + enemyName + "!");
+        $("#display").text("You have defeated " + enemyName + "! Select Another Enemy!");
         currentEnemy.hide();
         enemies--;
 
         //When All Of The Enemies Are Defeated
         if (enemies === 0) {
-            alert("You Win!");
+            $("#display").text("All Of The Enmies Have Been Defeated! You Win!");
             $("#resetButton").show();
         }
         $("#attackButton").hide();
@@ -126,7 +126,7 @@ function selection(character, cardName) {
         $("#yourChar").append(cardName);
         $("#enemies").append(characterCards);
         characterId = "#" + character.healthId;
-        $(cardName).css("background-color", "lightgreen");
+        $(cardName).css("background-color", "green");
     }
 
     //If An Enemy Hasn't Been Selected Yet
