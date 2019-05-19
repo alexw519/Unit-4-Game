@@ -58,14 +58,7 @@ $("#attackButton").hide();
 $("#resetButton").hide();
 
 //Click Function For The Obi-Wan Card
-$("#obiCard").on("click", function () {
-    // var clicked = false;
-    // if (!clicked)
-    // {
-    selection(obiWan, obiWanCard);
-    //     clicked = true;
-    // }
-})
+$("#obiCard").on("click", function () {   selection(obiWan, obiWanCard);  })
 
 //Click Function For The Luke Skywalker Card
 $("#lukeCard").on("click", function () { selection(lukeSky, lukeSkyCard); })

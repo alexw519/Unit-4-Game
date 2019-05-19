@@ -1,17 +1,27 @@
 img
 {
-    height: 100px;
+    height: 80px;
     width: 100px;
 }
 
 h1
 {
     float: right;
+    font-size: 60px;
 }
 
 .card
 {
     /* margin: 0 auto; */
-    border: 5px solid black;
+    border: 5px solid white;
     padding: 0px;
+    margin: 5px 0px;
+    background-color: black;
+}
+
+body
+{
+    font-family: 'Bungee', cursive;
+    color: white;
+    font-size: 14px;
 }

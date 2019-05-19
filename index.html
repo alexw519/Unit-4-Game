@@ -9,58 +9,50 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Bungee&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body background="assets/images/starWarsBackground.jpg">
 
+    <!-- Putting The Characters On A Bootstrap Card -->
     <h1>Star Wars RPG</h1>
     <div id="character">
-        <!-- <div class="row"> -->
         <div class="card-group">
-            
-        <!-- <div class="col-md-3"> -->
-        <div class="card text-center col-md-2" id="obiCard" style="width: 14rem; height: 11rem;">
-            <div class="card-body">
-                <h5 class="card-title">Obi-Wan Kenobi</h5>
-                <img src="./assets/images/obiWan.jpg" class="card-img-top" alt="...">
-                <p class="card-text" id="obiHealth">150</p>
+            <div class="card text-center col-md-2" id="obiCard" style="width: 14rem; height: 11rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Obi-Wan Kenobi</h5>
+                    <img src="./assets/images/obiWan.jpg" class="card-img-top" alt="...">
+                    <p class="card-text" id="obiHealth">150</p>
+                </div>
+            </div>
+
+            <div class="card text-center col-md-2" id="lukeCard" style="width: 14rem; height: 11rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Luke Skywalker</h5>
+                    <img src="./assets/images/lukeSkywalker.jpg" class="card-img-top" alt="...">
+                    <p class="card-text" id="lukeHealth">120</p>
+                </div>
+            </div>
+            <div class="card text-center col-md-2" id="sidCard" style="width: 14rem; height: 11rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Darth Sidous</h5>
+                    <img src="./assets/images/darthSidous.jpg" class="card-img-top" alt="...">
+                    <p class="card-text" id="sidHealth">140</p>
+                </div>
+            </div>
+            <div class="card text-center col-md-2" id="maulCard" style="width: 14rem; height: 11rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Darth Maul</h5>
+                    <img src="./assets/images/darthMaul.jpg" class="card-img-top" alt="...">
+                    <p class="card-text" id="maulHealth">170</p>
+                </div>
             </div>
         </div>
-        <!-- </div> -->
 
-        <!-- <div class="col-md-3"> -->
-        <div class="card text-center col-md-2" id="lukeCard" style="width: 14rem; height: 11rem;">
-            <div class="card-body">
-                <h5 class="card-title">Luke Skywalker</h5>
-                <img src="./assets/images/lukeSkywalker.jpg" class="card-img-top" alt="...">
-                <p class="card-text" id ="lukeHealth">120</p>
-            </div>
-        </div>
-        <!-- </div> -->
-
-        <!-- <div class="col-md-3"> -->
-        <div class="card text-center col-md-2" id="sidCard" style="width: 14rem; height: 11rem;">
-            <div class="card-body">
-                <h5 class="card-title">Darth Sidous</h5>
-                <img src="./assets/images/darthSidous.jpg" class="card-img-top" alt="...">
-                <p class="card-text" id="sidHealth">140</p>
-            </div>
-        </div>
-        <!-- </div> -->
-
-        <!-- <div class="col-md-3"> -->
-        <div class="card text-center col-md-2" id="maulCard" style="width: 14rem; height: 11rem;">
-            <div class="card-body">
-                <h5 class="card-title">Darth Maul</h5>
-                <img src="./assets/images/darthMaul.jpg" class="card-img-top" alt="...">
-                <p class="card-text" id="maulHealth">170</p>
-            </div>
-        </div>
-        </div>
-
-        </div>
+    </div>
     </div>
 
+    <!-- The Divs That Are Going To Hold The Cards -->
     <div id="yourChar">
         <h3>Your Character</h3>
     </div>
@@ -78,15 +70,7 @@
     <button id="resetButton">Reset</button>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="assets/javascript/game.js">
-
-
-
-        $(document).ready(function () {
-
-        });
-
-    </script>
+    <script src="assets/javascript/game.js"></script>
 
     <!-- jQuery CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
